@@ -9,7 +9,6 @@ import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStream;
 
 public class ExtractPdf {
-
 	public static void main(String[] args) throws IOException {
 		String path = "PATH";
 		String path2 = "PATH";
