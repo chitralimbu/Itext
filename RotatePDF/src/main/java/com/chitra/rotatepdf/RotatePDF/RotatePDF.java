@@ -28,8 +28,10 @@ public class RotatePDF {
 				document.newPage();
 				PdfImportedPage page = writer.getImportedPage(reader, i);
 				if(isPortrait(reader, i)) {
+					//If page is already portrait then make no changes to the template
 					cb.addTemplate(page, 0,0);
 				}else {
+					//If page is not portrait then apply matrix transformation. https://en.wikipedia.org/wiki/Transformation_matrix
 					cb.addTemplate(page, 0,1,-1,0, pagesize.getWidth(), 0);
 				}
 			}
