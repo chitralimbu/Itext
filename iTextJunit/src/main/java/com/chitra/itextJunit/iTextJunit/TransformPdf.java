@@ -7,4 +7,5 @@ public interface TransformPdf {
 	public void pdfTransform(String src, String dest);
 	public float calcScale(float pageDim, float A4Size);
 	public Rectangle getPageSize(PdfReader reader, int pagenumber);
+	public boolean isPortrait(PdfReader reader, int pagenumber);
 }

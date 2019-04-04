@@ -12,7 +12,7 @@ import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class PdfScale implements TransformPdf{
+public class ScaleTo implements TransformPdf{
 
 	@Override
 	public void pdfTransform(String src, String dest) {
@@ -46,6 +46,7 @@ public class PdfScale implements TransformPdf{
 		}catch(IOException | DocumentException e){
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
@@ -59,4 +60,9 @@ public class PdfScale implements TransformPdf{
 		return new Rectangle(Math.min(pagesize.getWidth(), pagesize.getHeight()), Math.max(pagesize.getWidth(), pagesize.getHeight()));
 	}
 
+	@Override
+	public boolean isPortrait(PdfReader reader, int pagenumber) {
+		Rectangle pagesize = reader.getPageSize(pagenumber);
+		return pagesize.getHeight() > pagesize.getWidth();
+	}
 }
